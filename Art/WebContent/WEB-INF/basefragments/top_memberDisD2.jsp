@@ -39,7 +39,7 @@
 						<li class="#"><a href="index.html">首頁</a></li>
 						<li><a href="#">票卷訂單紀錄</a></li>
 						<li><a href="<c:url value='/14/showOrderList.ctrl' />">洋行購物紀錄</a></li>
-						<li><a href="#">商店預約紀錄</a></li>
+						<li><a href="<c:url value='/03/csr/reservation/myReservation.ctrl' />">商店預約紀錄</a></li>
 						<li><a href="#">藝人聘用紀錄</a></li>
 						<li><a href="#">課程購買紀錄</a></li>
 						<li><a href="#">贊助紀錄</a></li>

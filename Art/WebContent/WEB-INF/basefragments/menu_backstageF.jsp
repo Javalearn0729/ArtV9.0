@@ -103,24 +103,42 @@
 			</div>
 		</div></li>
 
-	<!-- 店家相關 -->
+	<!-- 預約服務 -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#collapsePages3"
 		aria-expanded="true" aria-controls="collapsePages"> <i
-			class="fas fa-store"></i> <span>店家服務一覽</span>
+			class="fas fa-store"></i> <span>預約服務</span>
 	</a>
 		<div id="collapsePages3" class="collapse"
 			aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">藝文商店管理:</h6>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/Create'/>">新增藝文商店</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/Search'/>">查詢藝文商店</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/Update'/>">更新藝文商店</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/Delete'/>">刪除藝文商店</a>
 				<div class="collapse-divider"></div>
+				<h6 class="collapse-header">商店預約:</h6>
+				<a class="collapse-item" href="<c:url value='/03/cms/reservation/create'/>">預約商店</a>
+				<a class="collapse-item" href="<c:url value='/03/cms/reservation/search'/>">查詢預約</a>
+				<a class="collapse-item" href="<c:url value='/03/cms/reservation/update'/>">修改預約</a>
+				<a class="collapse-item" href="<c:url value='/03/cms/reservation/delete'/>">刪除預約</a>
 			</div>
 		</div></li>
 
+	<!-- 藝文商店服務 -->
+	<li class="nav-item"><a class="nav-link collapsed" href="#"
+		data-toggle="collapse" data-target="#collapsePages31"
+		aria-expanded="true" aria-controls="collapsePages"> <i
+			class="fas fa-store"></i> <span>藝文商店服務</span>
+	</a>
+		<div id="collapsePages31" class="collapse"
+			aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<div class="collapse-divider"></div>
+				<h6 class="collapse-header">藝文商店資訊:</h6>
+				<a class="collapse-item" href="<c:url value='/03/cms/shop/index.ctrl'/>">藝文商店管理</a>
+				<a class="collapse-item" href="<c:url value='/03/cms/shop/createConfirm.ctrl'/>">上架藝文商店</a>
+				<div class="collapse-divider"></div>
+				<h6 class="collapse-header">商店行事曆:</h6>
+				<a class="collapse-item" href="<c:url value='/03/cms/calendar/index.ctrl'/>">行事曆管理</a>
+			</div>
+		</div></li>
 
 	<!-- 吟遊詩人 -->
 	<li class="nav-item"><a class="nav-link collapsed" href="#"

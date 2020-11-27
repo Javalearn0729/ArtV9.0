@@ -165,8 +165,8 @@ public class SpringMVCConfig implements WebMvcConfigurer {
 //  設定ContentNegotiationManager，稍後設定ContentNegotiatingViewResolver會用到
 	@Override
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		configurer.ignoreAcceptHeader(true).defaultContentType(
-				MediaType.TEXT_HTML);
+//		configurer.ignoreAcceptHeader(true).defaultContentType(
+//				MediaType.TEXT_HTML);
 	}
 
 //	設定ContentNegotiatingViewResolver，初步設定把檔案輸出格式對應的畫面

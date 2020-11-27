@@ -52,7 +52,7 @@
 				<li class="nav-item"><a class="nav-link"
 					href="<c:url value='/14/showOrderList.ctrl' />">洋行購物紀錄</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="<c:url value='#' />">商店預約紀錄</a></li>
+					href="<c:url value='/03/csr/reservation/myReservation.ctrl' />">商店預約紀錄</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="<c:url value='#' />">藝人聘用紀錄</a></li>
 				<li class="nav-item"><a class="nav-link"

@@ -9,9 +9,9 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="<c:url value='/adminEnterBackstage'/>"> <svg width="1.25em" height="1.25em"
-			viewBox="0 0 16 16" class="bi bi-flower2" fill="currentColor"
-			xmlns="http://www.w3.org/2000/svg">
+		href="<c:url value='/adminEnterBackstage'/>"> <svg width="1.25em"
+			height="1.25em" viewBox="0 0 16 16" class="bi bi-flower2"
+			fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd"
 				d="M8 16a4 4 0 0 0 4-4 4 4 0 0 0 0-8 4 4 0 0 0-8 0 4 4 0 1 0 0 8 4 4 0 0 0 4 4zm3-12a3 3 0 0 0-6 0c0 .073.01.155.03.247.544.241 1.091.638 1.598 1.084A2.987 2.987 0 0 1 8 5c.494 0 .96.12 1.372.331.507-.446 1.054-.843 1.598-1.084.02-.092.03-.174.03-.247zm-.812 6.052A2.99 2.99 0 0 0 11 8a2.99 2.99 0 0 0-.812-2.052c.215-.18.432-.346.647-.487C11.34 5.131 11.732 5 12 5a3 3 0 1 1 0 6c-.268 0-.66-.13-1.165-.461a6.833 6.833 0 0 1-.647-.487zm-3.56.617a3.001 3.001 0 0 0 2.744 0c.507.446 1.054.842 1.598 1.084.02.091.03.174.03.247a3 3 0 1 1-6 0c0-.073.01-.155.03-.247.544-.242 1.091-.638 1.598-1.084zm-.816-4.721A2.99 2.99 0 0 0 5 8c0 .794.308 1.516.812 2.052a6.83 6.83 0 0 1-.647.487C4.66 10.869 4.268 11 4 11a3 3 0 0 1 0-6c.268 0 .66.13 1.165.461.215.141.432.306.647.487zM8 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
 </svg>
@@ -25,16 +25,18 @@
 	<hr class="sidebar-divider my-0">
 
 	<!-- Nav Item - Dashboard -->
-	<li class="nav-item h5"><a class="nav-link" href="<c:url value='/adminEnterBackstage'/>"> <i
+	<li class="nav-item h5"><a class="nav-link"
+		href="<c:url value='/adminEnterBackstage'/>"> <i
 			class="fa fa-tachometer" aria-hidden="true"></i> <span
 			style="font-size: medium;">主控台</span></a></li>
-	<li class="nav-item h5"><a class="nav-link" href="<c:url value='/adminLeaveBackstage' />"> <i
+	<li class="nav-item h5"><a class="nav-link"
+		href="<c:url value='/adminLeaveBackstage' />"> <i
 			class="fa fa-tachometer" aria-hidden="true"></i> <span
 			style="font-size: medium;">返回得藝的一天前台</span></a></li>
 
-<!-- 	<!-- Divider --> 
-<!-- 	<hr class="sidebar-divider"> -->
-	
+	<!-- 	<!-- Divider -->
+	<!-- 	<hr class="sidebar-divider"> -->
+
 	<!-- Divider -->
 	<hr class="sidebar-divider">
 
@@ -52,7 +54,7 @@
 			aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">藝文活動服務:</h6>
-				<a class="collapse-item" href="<c:url value='/35/selectAll.ctrl' />">修改租借場地資訊</a> 
+				<a class="collapse-item" href="<c:url value='/35/selectAll.ctrl' />">修改租借場地資訊</a>
 				<a class="collapse-item" href="<c:url value='' />">修改贊助活動資訊</a>
 			</div>
 		</div></li>
@@ -92,14 +94,15 @@
 			aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">訂單修改:</h6>
-				<a class="collapse-item" href="<c:url value='/14/ShowAllOrderList.ctrl' />">訂單刪除</a> <a class="collapse-item"
+				<a class="collapse-item"
+					href="<c:url value='/14/ShowAllOrderList.ctrl' />">訂單刪除</a> <a
+					class="collapse-item"
 					href="<c:url value='/14/ShowAllOrderList.ctrl' />">訂單編輯</a>
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">商品編輯:</h6>
 				<a class="collapse-item" href="<c:url value='/14/Create.ctrl' />">商品上架</a>
 				<a class="collapse-item" href="<c:url value='/14/CRUD.ctrl' />">商品下架</a>
-				<a class="collapse-item"
-					href="<c:url value='/14/CRUD.ctrl' />">修改商品內容</a>
+				<a class="collapse-item" href="<c:url value='/14/CRUD.ctrl' />">修改商品內容</a>
 			</div>
 		</div></li>
 
@@ -114,10 +117,14 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">商店預約:</h6>
-				<a class="collapse-item" href="<c:url value='/03/cms/reservation/create'/>">預約商店</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/reservation/search'/>">查詢預約</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/reservation/update'/>">修改預約</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/reservation/delete'/>">刪除預約</a>
+				<a class="collapse-item"
+					href="<c:url value='/03/cms/reservation/create'/>">預約商店</a> <a
+					class="collapse-item"
+					href="<c:url value='/03/cms/reservation/search'/>">查詢預約</a> <a
+					class="collapse-item"
+					href="<c:url value='/03/cms/reservation/update'/>">修改預約</a> <a
+					class="collapse-item"
+					href="<c:url value='/03/cms/reservation/delete'/>">刪除預約</a>
 			</div>
 		</div></li>
 
@@ -132,11 +139,14 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">藝文商店資訊:</h6>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/index.ctrl'/>">藝文商店管理</a>
-				<a class="collapse-item" href="<c:url value='/03/cms/shop/createConfirm.ctrl'/>">上架藝文商店</a>
+				<a class="collapse-item"
+					href="<c:url value='/03/cms/shop/index.ctrl'/>">藝文商店管理</a> <a
+					class="collapse-item"
+					href="<c:url value='/03/cms/shop/createConfirm.ctrl'/>">上架藝文商店</a>
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">商店行事曆:</h6>
-				<a class="collapse-item" href="<c:url value='/03/cms/calendar/index.ctrl'/>">行事曆管理</a>
+				<a class="collapse-item"
+					href="<c:url value='/03/cms/calendar/index.ctrl'/>">行事曆管理</a>
 			</div>
 		</div></li>
 
@@ -152,11 +162,11 @@
 				<h6 class="collapse-header">尋找藝人:</h6>
 				<a class="collapse-item"
 					href="<c:url value='/myStreetArtistPage.ctrl'/>">總覽</a> <a
-					class="collapse-item" href="<c:url value='/GoSearch'/>">搜尋</a>
-				<a class="collapse-item" href="<c:url value='/GoCreate'/>">藝人上架</a>
-				<a class="collapse-item" href="<c:url value='/GoDel'/>">藝人下架</a>
+					class="collapse-item" href="<c:url value='/GoSearch'/>">搜尋</a> <a
+					class="collapse-item" href="<c:url value='/GoCreate'/>">藝人上架</a> <a
+					class="collapse-item" href="<c:url value='/GoDel'/>">藝人下架</a>
 				<div class="collapse-divider"></div>
-				
+
 			</div>
 		</div></li>
 

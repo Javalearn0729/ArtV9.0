@@ -76,7 +76,7 @@
 								step="1" required></td>
 
 							<td><input type="time" name="startTime" min="00:00"
-								value="9:00" max="24:00" required></td>
+								value="09:00" max="24:00" required></td>
 
 							<td><input type="time" name="endTime" min="00:00"
 								value="18:00" max="24:00" required></td>

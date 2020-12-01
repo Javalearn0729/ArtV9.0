@@ -39,14 +39,14 @@
 			<h3 align="center" style="margin-top: 20px;">我的預約</h3>
 		</div>
 		<br>
-		<div class="back" align="right">
-			<form action="<c:url value='/index.html'/> " method="get">
-				<div class="submitButton">
-					<input type="submit" class="" name="submit" value="返回 會員專區">
-				</div>
-			</form>
-		</div>
-		<br>
+<!-- 		<div class="back" align="right"> -->
+<%-- 			<form action="<c:url value='/index.html'/> " method="get"> --%>
+<!-- 				<div class="submitButton"> -->
+<!-- 					<input type="submit" class="" name="submit" value="返回 會員專區"> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+<!-- 		<br> -->
 		<div class=content>
 			<table id="03"
 				class="display table table-bordered table-hover table-blue">
@@ -118,7 +118,7 @@
 </body>
 <!-- ====================================================== -->
 <script>
-	$(document).ready(function() {
-		$('#03').DataTable({});
-	});
+// 	$(document).ready(function() {
+// 		$('#03').DataTable({});
+// 	});
 </script>

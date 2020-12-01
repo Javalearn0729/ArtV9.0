@@ -58,7 +58,7 @@
 				class="display table table-bordered table-hover table-blue">
 				<thead>
 					<tr>
-						<th>商名查詢</th>
+						<th>店名查詢</th>
 				</thead>
 				<tbody>
 					<tr>

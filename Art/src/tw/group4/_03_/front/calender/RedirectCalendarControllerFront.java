@@ -66,9 +66,11 @@ public class RedirectCalendarControllerFront {
 		return IdentityFilter.loginID+"03/front_calendar/calendar_management";
 	}
 
-	@PostMapping(value = "/03/front/calendar/searchByYearMonth.json", produces = { "application/json; charset=UTF-8" })
-	public @ResponseBody List<ShopCalendarBean> searchByYearMonth(@RequestParam(name = "shopId") String shopId,
-			@RequestParam(name = "year") String year, @RequestParam(name = "month") String month) {
+	@PostMapping(value = "/03/front/calendar/searchByYearMonth.ctrl", produces = { "application/json; charset=UTF-8" })
+	public @ResponseBody List<ShopCalendarBean> searchByYearMonth(
+			@RequestParam(name = "shopId") String shopId,
+			@RequestParam(name = "year") String year, 
+			@RequestParam(name = "month") String month) {
 
 		List<ShopCalendarBean> calendarList = scs.selectByYearMonth(Integer.parseInt(shopId), Integer.parseInt(year),
 				Integer.parseInt(month));

@@ -39,10 +39,10 @@
 		<h3 align="center" style="margin-top: 20px;">行事曆管理</h3>
 	</div>
 	<div class="back" align="right">
-		<form action="<c:url value='/03/front/calendar/myCalendar.ctrl'/> "
+		<form action="<c:url value='/03/front/calendar/index.ctrl'/> "
 			method="post">
 			<div class="submitButton">
-				<input type="submit" class="" name="submit" value="返回 我的商店行事曆">
+				<input type="submit" class="" name="submit" value="返回 預約行事曆管理">
 			</div>
 		</form>
 	</div>
@@ -52,17 +52,16 @@
 			class="display table table-bordered table-hover table-blue">
 			<thead>
 				<tr class="head">
-					<th scope="col">商店代號</th>
-					<th scope="col">商店名稱</th>
-					<th scope="col">簡介</th>
-					<th scope="col">地址</th>
-					<th scope="col">連絡電話</th>
-					<th scope="col">電子郵件</th>
-					<th scope="col">商店網頁網址</th>
+					<th scope="col" >商店代號</th>
+					<th scope="col" >商店名稱</th>
+					<th scope="col" >簡介</th>
+					<th scope="col" >地址</th>
+					<th scope="col" >連絡電話</th>
+					<th scope="col" >電子郵件</th>
+					<th scope="col" >商店網頁網址</th>
 				</tr>
 			</thead>
-			<tfoot>
-			</tfoot>
+			<tfoot></tfoot>
 			<tbody>
 				<tr>
 					<td>${shop.shopId}</td>
@@ -80,7 +79,8 @@
 			<br>
 		</c:if>
 		<form method="post"
-			action="<c:url value = "/03/front/calendar/searchByYearMonth.json"/>">
+			action="<c:url value = "/03/front/calendar/searchByYearMonth.ctrl"/>"
+			>
 			<table id="03B"
 				class="display table table-bordered table-hover table-blue">
 				<thead>
@@ -88,10 +88,9 @@
 				<tbody>
 					<tr>
 						<td>請選擇年份:</td>
-						<td><select id="year" name="year" required="required">
+						<td colspan="2"><select id="year" name="year" required="required">
 								<option selected value="2020">2020年</option>
 								<option value="2021">2021年</option>
-								<option value="2022">2022年</option>
 						</select></td>
 						<td>請選擇月份:</td>
 						<td><select id="month" name="month" required="required">
@@ -108,13 +107,13 @@
 								<option value="11">11月</option>
 								<option selected value="12">12月</option>
 						</select></td>
-						<td><input type="hidden" id="shopId" name="shopId"
+						<td><input id='btn' type="button" value="查詢"></td>
+						<td style="display: none"><input type="hidden" id="shopId" name="shopId"
 							value="${shop.shopId}"></td>
-						<td><input type="hidden" id="shopName" name="shopName"
+						<td style="display: none"><input type="hidden" id="shopName" name="shopName"
 							value="${shop.shopName}"></td>
-						<td><input type="hidden" id="memberId" name="memberId"
+						<td style="display: none"><input type="hidden" id="memberId" name="memberId"
 							value="${shop.memberId}"></td>
-						<td><button id='btn'>查詢</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -128,24 +127,22 @@
 <!-- ====================================================== -->
 <script>
 	$(document).ready(function() {
-		$('#03').DataTable({});
+// 		$('#03A').DataTable({});
+		$('#03B').DataTable({});
 	});
 
-	window.onload = function() {
+	window.onload = function(){ 
 		var btn = document.getElementById("btn"); //按鈕的事件處理函數
 
-		btn.onclick = function() {
+		btn.onclick = function(){
 			var shopId = document.getElementById("shopId").value;
 			var shopName = document.getElementById("shopName").value;
 			var memberId = document.getElementById("memberId").value;
 			var year = document.getElementById("year").value;
 			var month = document.getElementById("month").value;
 			var xhr = new XMLHttpRequest();
-			xhr
-					.open(
-							"POST",
-							"<c:url value='/03/front/calendar/searchByYearMonth.json' />",
-							true);
+			
+			xhr.open("POST","<c:url value='/03/front/calendar/searchByYearMonth.ctrl' />",true);
 
 			xhr.setRequestHeader("Content-type",
 					"application/x-www-form-urlencoded");
@@ -159,10 +156,12 @@
 					// getResponseHeader: 取得回應內容的MIME Type
 
 					var calendarList = JSON.parse(xhr.responseText);
-
+					console.log("calendarList");
+					console.log(calendarList);
+					
 					// 假如有預約資料
 					if (calendarList.length > 0) {
-
+						console.log("calendarList > 0");
 						// 插入刪除預約的 From 表單
 						var content = "<form method='post' action='<c:url value='/03/front/calendar/deleteCalendar.ctrl'/>'><table id='03C' class='display table table-bordered table-hover table-blue'>";
 						content += "<thead><tr><th>日期</th><th>當日預約許可</th><th>最大預約人數</th><th>營業開始時間</th><th>營業結束時間</th><th>備註</th></tr></thead><tbody>";
@@ -212,8 +211,9 @@
 					} else {
 						// 假如沒有預約資料
 						// 新增的 From
-						var content = "<form method='post' action='<c:url value='/03/front/calendar/createCalendarConfirm.ctrl'/>' > ";
-						+"<div>查無行事曆資料</div><br>"
+						console.log("calendarList = 0");
+						var content = "<form method='post' action='<c:url value='/03/front/calendar/createCalendarConfirm.ctrl'/>' > "
+								+ "<div>查無行事曆資料</div><br>"
 								+ "<div class='submitButton'> "
 								+ "<Input type='hidden' name='shopId' value=" + shopId +">"
 								+ "<Input type='hidden' name='shopName' value=" + shopName +">"

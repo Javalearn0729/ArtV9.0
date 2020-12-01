@@ -43,7 +43,7 @@ public class RedirectCalendarController {
 	}
 
 	@RequestMapping(path = "/03/cms/calendar/calendarManagement.ctrl", method = RequestMethod.POST)
-	public String searchShopByShopId(@RequestParam(name = "shopId") String shopId, Model m) {
+	public String calendarManagement(@RequestParam(name = "shopId") String shopId, Model m) {
 
 		try {
 			int id = Integer.parseInt(shopId);
@@ -59,9 +59,11 @@ public class RedirectCalendarController {
 		return IdentityFilter.loginID+"03/cms_calendar/calendar_management";
 	}
 
-	@PostMapping(value = "/03/cms/calendar/searchByYearMonth.json", produces = { "application/json; charset=UTF-8" })
-	public @ResponseBody List<ShopCalendarBean> searchByYearMonth(@RequestParam(name = "shopId") String shopId,
-			@RequestParam(name = "year") String year, @RequestParam(name = "month") String month) {
+	@PostMapping(value = "/03/cms/calendar/searchByYearMonth.ctrl", produces = { "application/json; charset=UTF-8" })
+	public @ResponseBody List<ShopCalendarBean> searchByYearMonth(
+			@RequestParam(name = "shopId") String shopId,
+			@RequestParam(name = "year") String year, 
+			@RequestParam(name = "month") String month) {
 
 		List<ShopCalendarBean> calendarList = scs.selectByYearMonth(Integer.parseInt(shopId), Integer.parseInt(year),
 				Integer.parseInt(month));

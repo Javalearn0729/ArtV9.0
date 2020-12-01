@@ -8,14 +8,14 @@
 		<h3 align="center" style="margin-top: 20px;">藝文商店管理</h3>
 	</div>
 	<br>
-	<div class="back" align="right">
-		<form action="<c:url value='/index.html'/> " method="get">
-			<div class="submitButton">
-				<input type="submit" class="" name="submit" value="返回 後台管理系統">
-			</div>
-		</form>
-	</div>
-	<br>
+<!-- 	<div class="back" align="right"> -->
+<%-- 		<form action="<c:url value='/index.html'/> " method="get"> --%>
+<!-- 			<div class="submitButton"> -->
+<!-- 				<input type="submit" class="" name="submit" value="返回 後台管理系統"> -->
+<!-- 			</div> -->
+<!-- 		</form> -->
+<!-- 	</div> -->
+<!-- 	<br> -->
 	<!-- 	<div class=content> -->
 	<!-- 		<form method="post" -->
 	<%-- 			action="<c:url value="/03/cms/shop/createConfirm.ctrl"/>"> --%>
@@ -44,11 +44,10 @@
 				<tr class="head">
 					<th scope="col">商店代號</th>
 					<th scope="col">商店名稱</th>
-					<th scope="col">地址</th>
+					<th scope="col">商店地址</th>
 					<th scope="col">連絡電話</th>
-					<th scope="col">電子郵件</th>
-					<!-- ===================== -->
 					<th scope="col">詳細資訊</th>
+					<!-- ===================== -->
 					<th scope="col">更新</th>
 					<th scope="col">刪除</th>
 				</tr>
@@ -63,8 +62,6 @@
 							<td>${acShopsList.shopName}</td>
 							<td>${acShopsList.address}</td>
 							<td>${acShopsList.phone}</td>
-							<td>${acShopsList.email}</td>
-							<!-- ======================= -->
 							<td>
 								<form method="post"
 									action="<c:url value="/03/cms/shop/shopDetails.ctrl"/>">
@@ -74,6 +71,7 @@
 										value="${acShopsList.shopId}">
 								</form>
 							</td>
+							<!-- ======================= -->
 							<td>
 								<form method="post"
 									action="<c:url value="/03/cms/shop/updateShopByShopId.ctrl"/>">

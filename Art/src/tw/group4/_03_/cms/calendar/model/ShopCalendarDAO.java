@@ -25,7 +25,7 @@ public class ShopCalendarDAO {
 		session.save(bean);
 		return bean;
 	}
-	
+
 	public ShopCalendarBean selectByNo(int calendarNo) {
 		Session session = sessionFacory.getCurrentSession();
 		return session.get(ShopCalendarBean.class, calendarNo);
@@ -47,11 +47,10 @@ public class ShopCalendarDAO {
 		List<ShopCalendarBean> list = query.list();
 		return list;
 	}
-	
+
 	public List<ShopCalendarBean> selectByYearMonth(int shopId, int year, int month) {
 		Session session = sessionFacory.getCurrentSession();
-		Query<ShopCalendarBean> query = session.createQuery("From ShopCalendarBean where shopId = " + shopId
-				+ " and year = " + year + "  and month = " + month + "", ShopCalendarBean.class);
+		Query<ShopCalendarBean> query = session.createQuery("From ShopCalendarBean where shopId ="+shopId+" and year ="+year+"  and month ="+month+"", ShopCalendarBean.class);
 		List<ShopCalendarBean> list = query.list();
 		return list;
 	}
@@ -72,10 +71,8 @@ public class ShopCalendarDAO {
 		return list;
 	}
 
-	public ShopCalendarBean update(
-			int calendarNo, int shopId, String shopName, int memberId, int year,
-			int month, int day, int permission, int maximum, String dateTime,
-			String startTime, String endTime, String note) {
+	public ShopCalendarBean update(int calendarNo, int shopId, String shopName, int memberId, int year, int month,
+			int day, int permission, int maximum, String dateTime, String startTime, String endTime, String note) {
 
 		Session session = sessionFacory.getCurrentSession();
 		ShopCalendarBean result = session.get(ShopCalendarBean.class, calendarNo);

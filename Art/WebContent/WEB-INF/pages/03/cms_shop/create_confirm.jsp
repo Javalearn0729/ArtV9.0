@@ -19,8 +19,7 @@
 	<div class=content>
 		<form method="post"
 			action="<c:url value = "/03/cms/shop/createShop.ctrl"/>">
-			<table id="03"
-				class="display table table-bordered table-hover table-blue">
+			<table>
 				<thead></thead>
 				<tbody>
 					<tr>

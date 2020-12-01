@@ -36,14 +36,13 @@
 	<div class="container">
 		<br>
 		<div class=title>
-			<h3 align="center" style="margin-top: 20px;">行事曆管理</h3>
+			<h3 align="center" style="margin-top: 20px;">刪除藝文商店</h3>
 		</div>
 		<br>
 		<div class="back" align="right">
-			<form action="<c:url value='/03/front/calendar/myCalendar.ctrl'/> "
-				method="post">
+			<form action="<c:url value='/index.html'/> " method="get">
 				<div class="submitButton">
-					<input type="submit" class="" name="submit" value="返回 我的商店行事曆">
+					<input type="submit" class="" name="submit" value="返回 會員專區">
 				</div>
 			</form>
 		</div>
@@ -51,42 +50,15 @@
 		<div class=content>
 			<table id="03"
 				class="display table table-bordered table-hover table-blue">
-				<thead>
-					<tr class="head">
-						<th scope="col" width="150px">商店代號</th>
-						<th scope="col" width="150px">商店名稱</th>
-						<th scope="col" width="150px">商店地址</th>
-						<th scope="col" width="150px">連絡電話</th>
-						<th scope="col" width="150px">行事曆</th>
-					</tr>
-				</thead>
-				<tfoot></tfoot>
+				<thead></thead>
 				<tbody>
-					<c:if test="${acShopsList != null}">
-						<c:forEach items="${acShopsList}" var="acShopsList" varStatus="vs">
-							<tr>
-								<td>${acShopsList.shopId}</td>
-								<td>${acShopsList.shopName}</td>
-								<td>${acShopsList.address}</td>
-								<td>${acShopsList.phone}</td>
-								<td>
-									<form method="post"
-										action="<c:url value="/03/front/calendar/calendarManagement.ctrl"/>">
-										<button name="deleteButton" type="submit">行事曆管理</button>
-										<Input type="hidden" name="shopId"
-											value="${acShopsList.shopId}">
-									</form>
-								</td>
-							</tr>
-						</c:forEach>
-					</c:if>
+					<tr>
+						<td>
+							<div align="center" style="font-size: larger">${acShopsDeleteMsg}</div>
+						</td>
+					</tr>
 				</tbody>
-
 			</table>
-			<br>
-			<c:if test="${acShopsSerachMsg != null}">
-				<div align="center" style="font-size: larger">${acShopsSerachMsg}</div>
-			</c:if>
 		</div>
 	</div>
 </body>

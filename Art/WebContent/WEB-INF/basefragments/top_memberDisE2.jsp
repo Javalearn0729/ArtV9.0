@@ -74,7 +74,7 @@
 						<li><a href="<c:url value='/03/front/reservation/myReservation.ctrl' />">商店預約紀錄</a></li>
 						<li class="menu-has-children"><a href="">商店管理</a>
 							<ul>
-								<li><a href="#">藝文商店管理</a></li>
+								<li><a href="<c:url value='/03/front/shop/myShop.ctrl' />">藝文商店管理</a></li>
 								<li><a href="<c:url value='/03/front/calendar/myCalendar.ctrl' />">行事曆管理</a></li>
 							</ul>
 						</li>

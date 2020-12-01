@@ -8,7 +8,8 @@
 		<h3 align="center" style="margin-top: 20px;">行事曆管理</h3>
 	</div>
 	<div class="back" align="right">
-		<form action="<c:url value='/03/cms/calendar/index.ctrl'/> " method="post">
+		<form action="<c:url value='/03/cms/calendar/index.ctrl'/> "
+			method="post">
 			<div class="submitButton">
 				<input type="submit" class="" name="submit" value="返回 預約行事曆管理">
 			</div>
@@ -18,17 +19,17 @@
 	<div class=content>
 		<table id="03B"
 			class="display table table-bordered table-hover table-blue">
-			<thead></thead>
-			<tbody>
+			<thead>
 				<tr class="head">
-					<th scope="col">商店代號</th>
-					<th scope="col">商店名稱</th>
-					<th scope="col">地址</th>
-					<th scope="col">連絡電話</th>
-					<th scope="col">電子郵件</th>
-					<!-- ===================== -->
-					<th scope="col">行事曆管理</th>
+					<th scope="col" width="150px">商店代號</th>
+					<th scope="col" width="150px">商店名稱</th>
+					<th scope="col" width="150px">商店地址</th>
+					<th scope="col" width="150px">連絡電話</th>
+					<th scope="col" width="150px">行事曆</th>
 				</tr>
+			</thead>
+			<tfoot></tfoot>
+			<tbody>
 				<c:if test="${acShopsList != null}">
 					<c:forEach items="${acShopsList}" var="acShopsList" varStatus="vs">
 						<tr>
@@ -36,8 +37,6 @@
 							<td>${acShopsList.shopName}</td>
 							<td>${acShopsList.address}</td>
 							<td>${acShopsList.phone}</td>
-							<td>${acShopsList.email}</td>
-							<!-- ======================= -->
 							<td>
 								<form method="post"
 									action="<c:url value="/03/cms/calendar/calendarManagement.ctrl"/>">

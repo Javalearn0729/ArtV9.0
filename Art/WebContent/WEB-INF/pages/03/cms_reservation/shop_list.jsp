@@ -25,8 +25,6 @@
 					<th scope="col">商店名稱</th>
 					<th scope="col">地址</th>
 					<th scope="col">連絡電話</th>
-					<!-- ===================== -->
-					<th scope="col">電子郵件</th>
 					<th scope="col">預約</th>
 				</tr>
 			</thead>
@@ -39,8 +37,6 @@
 							<td>${acShopsList.shopName}</td>
 							<td>${acShopsList.address}</td>
 							<td>${acShopsList.phone}</td>
-							<td>${acShopsList.email}</td>
-							<!-- 	======================= -->
 							<td>
 								<form method="post"
 									action="<c:url value="/03/cms/reservation/createReservationDate.ctrl"/>">

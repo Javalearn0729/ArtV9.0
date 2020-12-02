@@ -76,6 +76,7 @@ public class CreativeShopDAO {
 		List<CreativeShopBean> list = query.list();
 		return list;
 	}
+	
 	public List<CreativeShopBean> selectByShopNameAndMemberId(String shopName, int memberId) {
 		Session session = sessionFacory.getCurrentSession();
 		Query<CreativeShopBean> query = session.createQuery("From CreativeShopBean where shopName like '%" + shopName + "%' and memberId = " + memberId + " ",
@@ -165,5 +166,29 @@ public class CreativeShopDAO {
 	}
 
 	// 15 ==========================
+	
+	public List<CreativeShopBean> select16OrderByShopId() {
+		Session session = sessionFacory.getCurrentSession();
+		Query<CreativeShopBean> query = session.createQuery("From CreativeShopBean order by shopId ASC",
+				CreativeShopBean.class);
+		List<CreativeShopBean> list = query.setMaxResults(16).list();
+		return list;
+	}
+	
+	public List<CreativeShopBean> select16OrderByPopularity() {
+		Session session = sessionFacory.getCurrentSession();
+		Query<CreativeShopBean> query = session.createQuery("From CreativeShopBean order by clicks DESC",
+				CreativeShopBean.class);
+		List<CreativeShopBean> list = query.setMaxResults(16).list();
+		return list;
+	}
+	
+	public List<CreativeShopBean> select4OrderByPopularity() {
+		Session session = sessionFacory.getCurrentSession();
+		Query<CreativeShopBean> query = session.createQuery("From CreativeShopBean order by shopId DESC",
+				CreativeShopBean.class);
+		List<CreativeShopBean> list = query.setMaxResults(4).list();
+		return list;
+	}
 	
 }

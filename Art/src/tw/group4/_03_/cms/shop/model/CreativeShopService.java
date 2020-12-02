@@ -90,5 +90,21 @@ public class CreativeShopService implements ICreativeShopService {
 	public boolean delete(int shopId) {
 		return creativeShopDAO.delete(shopId);
 	}
-
+	
+	@Override
+	public List<CreativeShopBean> select16OrderByShopId(){
+		return creativeShopDAO.select16OrderByShopId();
+	}
+	
+	@Override
+	public List<CreativeShopBean> select16OrderByPopularity(){
+		return creativeShopDAO.select16OrderByPopularity();
+	}
+	
+	@Override
+	public List<CreativeShopBean> select4OrderByPopularity(){
+		return creativeShopDAO.select4OrderByPopularity();
+	}
+	
+	
 }

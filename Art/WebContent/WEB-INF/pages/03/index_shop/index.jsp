@@ -8,9 +8,15 @@
 <meta charset="UTF-8">
 <title>my reservation</title>
 <style>
-/* p, div { */
-
-/* } */
+.ellipsis {
+	/* 行數設定 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}
 </style>
 
 </head>
@@ -25,7 +31,7 @@
 					<h1 class="text-white">AAART Shop</h1>
 					<p class="text-white link-nav">
 						<a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
-						<a href="<c:url value='/14/shopListController.ctrl' />"> Shop</a>
+						<a href="<c:url value='/03/index/shop/index.ctrl' />"> Creative Shop</a>
 					</p>
 				</div>
 			</div>
@@ -34,8 +40,7 @@
 	<!-- End banner Area -->
 
 	<div class="container">
-		<br>
-		<br>
+		<br> <br>
 		<div class="row d-flex justify-content-center">
 			<div class="menu-content pb-70 col-lg-8">
 				<div class="title text-center">
@@ -43,90 +48,71 @@
 				</div>
 			</div>
 		</div>
-		<div class="back" align="right">
-			<form action="<c:url value='/index.html'/> " method="get">
-				<div class="submitButton">
-					<input type="submit" class="" name="submit" value="返回 會員專區">
-				</div>
-			</form>
+		<div class="back" align="left">
+			<div class="submitButton">
+				<a href="#" class="genric-btn primary radius">New!新上架</a> 
+				<a href="#" class="genric-btn primary radius">Hot~熱排行</a>
+				<a href="#" class="genric-btn primary radius">Book&#x2606可預約</a>
+				<a href="#" class="genric-btn primary radius">Cafe&#x26FE找餐廳</a>
+			</div>
+		</div>
+		<br> <br>
+		<!-- 		<div id="id"> -->
+		<!-- 			<div class="row"> -->
+		<%-- 				<c:forEach items="${shopListbyId}" var="shopListbyId" varStatus="vs"> --%>
+		<!-- 					<a -->
+		<%-- 						href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> "> --%>
+		<!-- 						<div class="col-lg-3 col-md-6 single-blog"> -->
+		<!-- 							<div class="thumb"> -->
+		<%-- 								<img class="img-fluid" src="${shopListbyId.image} " alt=""> --%>
+		<!-- 							</div> -->
+		<!-- 							<p class="date">10 Jan 2018</p> -->
+		<!-- 							<a -->
+		<%-- 								href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> "><h3>${shopListbyId.shopName}</h3></a> --%>
+		<%-- 							<p class="ellipsis">${shopListbyId.intro}</p> --%>
+		<!-- 							<div class="meta-bottom d-flex justify-content-between"> -->
+		<!-- 								<p> -->
+		<%-- 									<span class="lnr lnr-heart"></span> ${shopListbyId.clicks} --%>
+		<!-- 									Likes -->
+		<!-- 								</p> -->
+		<!-- 							</div> -->
+		<!-- 						</div> <br> -->
+		<!-- 					</a> -->
+		<%-- 				</c:forEach> --%>
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+		<div id="popularity">
+			<div class="row">
+				<c:forEach items="${shopListbyPopularity}"
+					var="shopListbyPopularity" varStatus="vs">
+					<a
+						href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyPopularity.shopId}'/> ">
+						<div class="col-lg-3 col-md-6 single-blog">
+							<div class="thumb">
+								<img class="img-fluid" src="${shopListbyPopularity.image} "
+									alt="">
+							</div>
+							<br> <a
+								href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyPopularity.shopId}'/> "><h4>${shopListbyPopularity.shopName}</h4></a>
+							<div>
+								<p class="ellipsis">${shopListbyPopularity.intro}</p>
+							</div>
+							<div class="meta-bottom d-flex justify-content-between">
+								<p>
+									<span class="lnr lnr-heart"></span>
+									${shopListbyPopularity.clicks} Likes
+								</p>
+							</div>
+						</div>
+					</a>
+					<br>
+				</c:forEach>
+			</div>
 		</div>
 		<br>
-		<div class="row">
-		
-		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b1.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-				<p>inappropriate behavior ipsum dolor sit amet, consectetur.</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p>
-						<span class="lnr lnr-heart"></span> 15 Likes
-					</p>
-					<p>
-						<span class="lnr lnr-bubble"></span> 02 Comments
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b2.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-				<p>inappropriate behavior ipsum dolor sit amet, consectetur.</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p>
-						<span class="lnr lnr-heart"></span> 15 Likes
-					</p>
-					<p>
-						<span class="lnr lnr-bubble"></span> 02 Comments
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b3.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-				<p>inappropriate behavior ipsum dolor sit amet, consectetur.</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p>
-						<span class="lnr lnr-heart"></span> 15 Likes
-					</p>
-					<p>
-						<span class="lnr lnr-bubble"></span> 02 Comments
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b4.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-				<p>inappropriate behavior ipsum dolor sit amet, consectetur.</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p>
-						<span class="lnr lnr-heart"></span> 15 Likes
-					</p>
-					<p>
-						<span class="lnr lnr-bubble"></span> 02 Comments
-					</p>
-				</div>
-			</div>
-		</div>
-
-
 	</div>
 </body>
 <!-- ====================================================== -->
 <script>
-	// 	$(document).ready(function() {
-	// 		$('#03').DataTable({});
-	// 	});
+	
 </script>

@@ -68,7 +68,7 @@
 					<ul class="nav-menu">
 						<li class="#"><a href="index.html">首頁</a></li>
 						<li><a href="<c:url value='/14/shopListController.ctrl' />">得意洋行</a></li>
-						<li><a href="#">找商店</a></li>
+						<li><a href="<c:url value='/03/index/shop/index.ctrl' />">找商店</a></li>
 						<li><a href="#">找藝人</a></li>
 						<li><a href="#">找課程</a></li>
 						<li><a href="#">企業贊助</a></li>

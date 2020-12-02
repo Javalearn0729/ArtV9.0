@@ -42,7 +42,7 @@
 						<tr>
 							<td>簡介</td>
 							<td><textarea placeholder="請輸入簡介內容" name="intro" readonly
-									style="width: 400px; height: 70px;">${acShopsList.intro}</textarea></td>
+									style="width:500px; height: 90px;">${acShopsList.intro}</textarea></td>
 						</tr>
 
 						<!-- ====================================================== -->

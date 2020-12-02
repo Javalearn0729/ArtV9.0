@@ -40,5 +40,13 @@ public interface ICreativeShopService {
 			String email, String facebook, String website, int clicks, int reservation);
 	
 	public boolean delete(int shopId);
+	
+	// 15 ==========================
 
+	public List<CreativeShopBean> select16OrderByShopId();
+	
+	public List<CreativeShopBean> select16OrderByPopularity();
+	
+	public List<CreativeShopBean> select4OrderByPopularity();
+	
 }

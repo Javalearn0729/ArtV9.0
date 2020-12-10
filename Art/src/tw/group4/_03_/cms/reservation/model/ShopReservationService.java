@@ -42,20 +42,10 @@ public class ShopReservationService implements IShopReservationBean {
 	public List<ShopReservationBean> selectByMemberName(String memberName) {
 		return shopReservationDAO.selectByMemberName(memberName);
 	}
-
-	@Override
-	public List<ShopReservationBean> selectByShopId(int shopId) {
-		return shopReservationDAO.selectByShopId(shopId);
-	}
-
-	@Override
-	public List<ShopReservationBean> selectByShopName(String shopName) {
-		return shopReservationDAO.selectByShopName(shopName);
-	}
 	
 	@Override
-	public List<ShopReservationBean> selectByDateTime(int shopId, String dateTime){
-		return shopReservationDAO.selectByDateTime(shopId, dateTime);
+	public List<ShopReservationBean> selectByDateTime(String dateTime){
+		return shopReservationDAO.selectByDateTime(dateTime);
 	}
 	
 	@Override
@@ -63,23 +53,27 @@ public class ShopReservationService implements IShopReservationBean {
 		return shopReservationDAO.selectAll();
 	}
 
-	// =====================
-
 	@Override
-	public ShopReservationBean update( 
-			int reservationNo, int memberId, String memberName, int shopId, String shopName,
-			String customerName, String customerPhone, int adultsNum, int childrenNum, int amount, 
-			String dateTime, String startTime, String endTime, String note) {
+	public ShopReservationBean update(
+			int reservationNo, int memberId, String memberName, String customerName, String customerPhone, 
+			int adultsNum, int childrenNum, int amount, String dateTime, String time,
+			int payment, String note, int gender, String email, int purpose) {
 		return shopReservationDAO.update( 
-				reservationNo, memberId, memberName, shopId, shopName, 
-				customerName, customerPhone, adultsNum, childrenNum, amount, 
-				dateTime, startTime, endTime, note);
+				reservationNo, memberId, memberName, customerName, customerPhone,
+				adultsNum, childrenNum, amount, dateTime, time,
+				payment, note, gender, email, purpose);
 	}
-
 	
 	@Override
 	public boolean delete(int reservationNo) {
 		return shopReservationDAO.delete(reservationNo);
 	}
 
+	// =====================
+
+	public boolean deleteByMemberIdAndDateAndTime(int memberId, String dateTime, String time) {
+		return shopReservationDAO.deleteByMemberIdAndDateAndTime(memberId, dateTime, time);
+	}
+
+	
 }

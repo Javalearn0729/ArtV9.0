@@ -73,14 +73,14 @@ public class SearchReservationFront {
 	public String searchReservationByShopName(@RequestParam(name = "shopName") String shopName, Model m) {
 		
 		try {
-			List<ShopReservationBean> reservationList = srs.selectByShopName(shopName);
+//			List<ShopReservationBean> reservationList = srs.selectByShopName(shopName);
 			
-			if (reservationList.size() != 0) {
-				m.addAttribute("reservationList", reservationList);
-			} else {
-				String reservationSerachMsg = "查無此商店名稱，請重新查詢";
-				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
-			}
+//			if (reservationList.size() != 0) {
+//				m.addAttribute("reservationList", reservationList);
+//			} else {
+//				String reservationSerachMsg = "查無此商店名稱，請重新查詢";
+//				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			

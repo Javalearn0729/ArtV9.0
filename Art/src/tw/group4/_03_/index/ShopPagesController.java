@@ -58,5 +58,5 @@ public class ShopPagesController {
 		}
 		return IdentityFilter.loginID + "03/index_shop/shop_details";
 	}
-
+	
 }

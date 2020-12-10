@@ -56,16 +56,8 @@
 				<tfoot></tfoot>
 				<tbody>
 					<tr>
-						<td>商店編號</td>
-						<td>${shop.shopId}</td>
-					</tr>
-					<tr>
 						<td>商店名稱</td>
 						<td>${shop.shopName}</td>
-					</tr>
-					<tr>
-						<td>會員帳號</td>
-						<td>${shop.memberId}</td>
 					</tr>
 					<tr>
 						<td>代表圖示 (icon)</td>
@@ -118,23 +110,9 @@
 						<td><span class="lnr lnr-heart"></span> 熱門度</td>
 						<td>${shop.clicks}</td>
 					</tr>
-					<tr>
-						<td>是否使用預約系統</td>
-						<td><div id="result"></div></td>
-					</tr>
-					<tr style="display: none">
-						<td><input type="hidden" name="reservation" id="reservation"
-							value="${shop.reservation}"></td>
-					</tr>
 					<!-- ====================================================== -->
 				</tbody>
 			</table>
-			<br>
-			<c:if test="${acShopsSerachMsg != null}">
-				<div align="center" style="font-size: larger">${acShopsSerachMsg}</div>
-				<br>
-			</c:if>
-			<br>
 		</div>
 	</div>
 </body>
@@ -143,15 +121,4 @@
 	$(document).ready(function() {
 		$('#03').DataTable({});
 	});
-
-	window.onload = function() {
-		var reservation = document.getElementById("reservation").value;
-		if (reservation == 0) {
-			var content = "不使用預約系統";
-		} else {
-			var content = "使用預約系統";
-		}
-		var result = document.getElementById("result");
-		result.innerHTML = content;
-	}
 </script>

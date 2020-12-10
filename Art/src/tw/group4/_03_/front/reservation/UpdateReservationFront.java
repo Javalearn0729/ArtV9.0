@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import tw.group4._03_.cms.reservation.model.ShopReservationBean;
 import tw.group4._03_.cms.reservation.model.ShopReservationService;
+import tw.group4._03_.cms.restaurant.model.RestaurantBean;
+import tw.group4._03_.cms.restaurant.model.RestaurantService;
 import tw.group4.util.IdentityFilter;
 
 @Controller
 public class UpdateReservationFront {
 
+	@Autowired
+	private RestaurantService rs;
+	
 	@Autowired
 	private ShopReservationService srs;
 	
@@ -25,23 +30,103 @@ public class UpdateReservationFront {
 		try {
 			int no = Integer.parseInt(reservationNo);
 			List<ShopReservationBean> reservationList = srs.selectByNo(no);
+			ShopReservationBean reservation = reservationList.get(0);
+
+			// 獲得該時段的剩餘座位數
+			List<RestaurantBean> restaurantList = rs.selectByDateTime(reservation.getDateTime());
+			RestaurantBean restaurant = restaurantList.get(0);
 			
-			if (reservationList.size() != 0) {
-				m.addAttribute("reservationList", reservationList);
-			} else {
-				String reservationSerachMsg = "查無此預約資料，請重新查詢";
-				System.out.println(reservationSerachMsg);
-				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
+			if(reservation.getTime() == "09:00") {
+				String moment = "上午9點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH09();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "10:00") {
+				String moment = "上午10點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "11:00") {
+				String moment = "上午11點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH11();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "12:00") {
+				String moment = "中午12點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH12();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "13:00") {
+				String moment = "下午1點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH13();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "14:00") {
+				String moment = "下午2點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH14();
+				m.addAttribute("remainingNum", remainingNum);
+
+			}else if (reservation.getTime() == "15:00") {
+				String moment = "下午3點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "16:00") {
+				String moment = "下午4點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "17:00") {
+				String moment = "下午5點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "18:00") {
+				String moment = "晚上6點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "19:00") {
+				String moment = "晚上7點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else if (reservation.getTime() == "20:00") {
+				String moment = "晚上8點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
+				
+			}else {
+				String moment = "晚上9點";
+				m.addAttribute("moment", moment);
+				int remainingNum = restaurant.getH10();
+				m.addAttribute("remainingNum", remainingNum);
 			}
+			
+			m.addAttribute("reservation", reservation);
+			m.addAttribute("restaurant", restaurant);
 		} catch (Exception e) {
 			e.printStackTrace();
-			
-			String reservationSerachMsg = "搜尋出錯，請重新查詢";
-			m.addAttribute("reservationSerachMsg", reservationSerachMsg); // 回傳錯誤訊息
+			System.out.println("搜尋出錯，請重新查詢");
 		}
-		return IdentityFilter.loginID+"03/front_reservation/update_confirm";
+		return IdentityFilter.loginID+"03/front_reservation/update_choose_number";
 	}
 
+	
+	
+	
 	@RequestMapping(path = "/03/front/reservation/updateReservation.ctrl", method = RequestMethod.POST)
 	private String updateReservation( 
 			@RequestParam(name = "reservationNo") String reservationNo,
@@ -71,9 +156,9 @@ public class UpdateReservationFront {
 			int intAmount = Integer.parseInt(amount);
 
 			// 執行更新
-			srs.update(intReservationNo, intMemberId, memberName, intShopId, shopName, 
-					customerName, customerPhone, intAdultsNum, intChildrenNum, intAmount, 
-					dateTime, startTime, endTime, note);
+//			srs.update(intReservationNo, intMemberId, memberName, intShopId, shopName, 
+//					customerName, customerPhone, intAdultsNum, intChildrenNum, intAmount, 
+//					dateTime, startTime, endTime, note);
 
 			String reservationUpdateMsg = "商店資料修改成功";
 			m.addAttribute("reservationUpdateMsg", reservationUpdateMsg);
@@ -86,48 +171,28 @@ public class UpdateReservationFront {
 		return IdentityFilter.loginID+"03/front_reservation/update_return";
 	}
 
-	@RequestMapping(path = "/03/front/reservation/updateReservationByMemberName.ctrl", method = RequestMethod.POST)
-	private String updateReservationByMemberName(@RequestParam(name = "memberName") String memberName, Model m) {
-
-		try {
-			List<ShopReservationBean> reservationList = srs.selectByMemberName(memberName);
-			/*
-			 * 不可使用xxxList != null) xxxList 會含一個空陣列
-			 */
-			if (reservationList.size() != 0) {
-				m.addAttribute("reservationList", reservationList);
-			} else {
-				String reservationSerachMsg = "查無此預約資料，請重新查詢";
+//	@RequestMapping(path = "/03/csm/reservation/updateReservationByMemberName.ctrl", method = RequestMethod.POST)
+//	private String updateReservationByMemberName(@RequestParam(name = "memberName") String memberName, Model m) {
+//
+//		try {
+//			List<ShopReservationBean> reservationList = srs.selectByMemberName(memberName);
+//			/*
+//			 * 不可使用xxxList != null) xxxList 會含一個空陣列
+//			 */
+//			if (reservationList.size() != 0) {
+//				m.addAttribute("reservationList", reservationList);
+//			} else {
+//				String reservationSerachMsg = "查無此預約資料，請重新查詢";
 //				System.out.println(reservationSerachMsg);
-				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			String reservationSerachMsg = "搜尋出錯，請重新查詢";
-			m.addAttribute("reservationSerachMsg", reservationSerachMsg); // 回傳錯誤訊息
-		}
-		return IdentityFilter.loginID+"03/front_reservation/update_by_name";
-	}
+//				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			String reservationSerachMsg = "搜尋出錯，請重新查詢";
+//			m.addAttribute("reservationSerachMsg", reservationSerachMsg); // 回傳錯誤訊息
+//		}
+//		return IdentityFilter.loginID+"03/csm_reservation/update_by_name";
+//	}
 
-	@RequestMapping(path = "/03/front/reservation/updateReservationByShopName.ctrl", method = RequestMethod.POST)
-	public String updateReservationByShopName(@RequestParam(name = "shopName") String shopName, Model m) {
-
-		try {
-			List<ShopReservationBean> reservationList = srs.selectByShopName(shopName);
-
-			if (reservationList.size() != 0) {
-				m.addAttribute("reservationList", reservationList);
-			} else {
-				String reservationSerachMsg = "查無此預約資料，請重新查詢";
-				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-
-			String reservationSerachMsg = "搜尋出錯，請重新查詢";
-			m.addAttribute("reservationSerachMsg", reservationSerachMsg); // 回傳錯誤訊息
-		}
-		return IdentityFilter.loginID+"03/front_reservation/update_by_name";
-	}
-
+	
 }

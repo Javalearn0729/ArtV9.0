@@ -35,7 +35,7 @@ public class RedirectReservationControllerFront {
 			if (reservationList.size() != 0) {
 				m.addAttribute("reservationList", reservationList);
 			} else {
-				String reservationSerachMsg = "沒有預約商店資料!";
+				String reservationSerachMsg = "沒有訂位資料!";
 				m.addAttribute("reservationSerachMsg", reservationSerachMsg);
 			}
 

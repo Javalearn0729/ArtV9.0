@@ -51,17 +51,20 @@ public class CreateShopReservationTable {
 					+ "(reservationNo NUMBER GENERATED ALWAYS AS IDENTITY(START WITH 1 INCREMENT BY 1) PRIMARY KEY NOT NULL,  "
 					+ "memberId NUMBER, "
 					+ "memberName VARCHAR2(50), "
-					+ "shopId NUMBER REFERENCES CS_CREATIVE_SHOP_TABLE(SHOPID), "
-					+ "shopName VARCHAR2(1000 BYTE), "
 					+ "customerName varchar2(80), "
 					+ "customerPhone varchar2(80), "
+					
 					+ "adultsNum NUMBER(8,0), "
 					+ "childrenNum NUMBER(8,0), "
 					+ "amount NUMBER(8,0), "
 					+ "dateTime VARCHAR2(80), "
-					+ "startTime VARCHAR2(80), "
-					+ "endTime VARCHAR2(80),"
-					+ "note VARCHAR2(4000 BYTE))";
+					+ "time VARCHAR2(80), "
+					
+					+ "payment NUMBER(8,0), "
+					+ "note VARCHAR2(4000 BYTE), "
+					+ "GENDER NUMBER(8,0), "
+					+ "EMAIL VARCHAR2(4000 BYTE), "
+					+ "PURPOSE NUMBER(8,0))";
 
 			stmt.executeUpdate(sql);
 			System.out.println("商店預約表格已建立");

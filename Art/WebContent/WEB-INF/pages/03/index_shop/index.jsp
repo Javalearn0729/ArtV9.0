@@ -30,8 +30,9 @@
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">AAART Shop</h1>
 					<p class="text-white link-nav">
-						<a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
-						<a href="<c:url value='/03/index/shop/index.ctrl' />"> Creative Shop</a>
+						<a href="index.html">首頁 </a> <span class="lnr lnr-arrow-right"></span>
+						<a href="<c:url value='/03/index/shop/index.ctrl' />">
+							Creative Shop</a>
 					</p>
 				</div>
 			</div>
@@ -50,37 +51,37 @@
 		</div>
 		<div class="back" align="left">
 			<div class="submitButton">
-				<a href="#" class="genric-btn primary radius">New!新上架</a> 
-				<a href="#" class="genric-btn primary radius">Hot~熱排行</a>
-				<a href="#" class="genric-btn primary radius">Book&#x2606可預約</a>
-				<a href="#" class="genric-btn primary radius">Cafe&#x26FE找餐廳</a>
+				<a href="#" class="genric-btn primary radius">New!新上架</a> <a
+					href="#" class="genric-btn primary radius">Hot~熱排行</a> <a href="#"
+					class="genric-btn primary radius">Book&#x2606可預約</a> <a href="#"
+					class="genric-btn primary radius">Cafe&#x26FE找餐廳</a>
 			</div>
 		</div>
-		<br> <br>
-		<!-- 		<div id="id"> -->
-		<!-- 			<div class="row"> -->
-		<%-- 				<c:forEach items="${shopListbyId}" var="shopListbyId" varStatus="vs"> --%>
-		<!-- 					<a -->
-		<%-- 						href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> "> --%>
-		<!-- 						<div class="col-lg-3 col-md-6 single-blog"> -->
-		<!-- 							<div class="thumb"> -->
-		<%-- 								<img class="img-fluid" src="${shopListbyId.image} " alt=""> --%>
-		<!-- 							</div> -->
-		<!-- 							<p class="date">10 Jan 2018</p> -->
-		<!-- 							<a -->
-		<%-- 								href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> "><h3>${shopListbyId.shopName}</h3></a> --%>
-		<%-- 							<p class="ellipsis">${shopListbyId.intro}</p> --%>
-		<!-- 							<div class="meta-bottom d-flex justify-content-between"> -->
-		<!-- 								<p> -->
-		<%-- 									<span class="lnr lnr-heart"></span> ${shopListbyId.clicks} --%>
-		<!-- 									Likes -->
-		<!-- 								</p> -->
-		<!-- 							</div> -->
-		<!-- 						</div> <br> -->
-		<!-- 					</a> -->
-		<%-- 				</c:forEach> --%>
-		<!-- 			</div> -->
-		<!-- 		</div> -->
+		<br>
+		<div id="id">
+			<div class="row">
+				<c:forEach items="${shopListbyId}" var="shopListbyId" varStatus="vs">
+					<a
+						href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> ">
+						<div class="col-lg-3 col-md-6 single-blog">
+							<div class="thumb">
+								<img class="img-fluid" src="${shopListbyId.image} " alt="">
+							</div>
+							<p class="date">10 Jan 2018</p>
+							<a
+								href="<c:url value='/03/index/shop/shopDetails.ctrl?shopId=${shopListbyId.shopId}'/> "><h3>${shopListbyId.shopName}</h3></a>
+							<p class="ellipsis">${shopListbyId.intro}</p>
+							<div class="meta-bottom d-flex justify-content-between">
+								<p>
+									<span class="lnr lnr-heart"></span> ${shopListbyId.clicks}
+									Likes
+								</p>
+							</div>
+						</div> <br>
+					</a>
+				</c:forEach>
+			</div>
+		</div>
 		<div id="popularity">
 			<div class="row">
 				<c:forEach items="${shopListbyPopularity}"

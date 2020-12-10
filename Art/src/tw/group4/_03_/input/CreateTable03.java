@@ -2,9 +2,9 @@ package tw.group4._03_.input;
 
 import java.util.ArrayList;
 
-import tw.group4._03_.input.Calendar.CreateShopCalendarTable;
 import tw.group4._03_.input.CreativeShop.CreateShopsTable;
 import tw.group4._03_.input.CreativeShop.ShopsTable;
+import tw.group4._03_.input.Restaurant.CreateRestaurantTable;
 import tw.group4._03_.input.ShopReservation.CreateShopReservationTable;
 
 public class CreateTable03 {
@@ -37,14 +37,21 @@ public class CreateTable03 {
 
 		// =============================
 
-		CreateShopCalendarTable input3 = new CreateShopCalendarTable();
+//		CreateShopCalendarTable inpuOld = new CreateShopCalendarTable();
 
 		// 刪除舊的預約行事歷表格
-		input3.dropShopCalendarTable();
+//		inpuOld.dropShopCalendarTable();
 		
-		// 建立新的預約行事歷表格
-		input3.createShopCalendarTable();
-
+		// =============================
+		
+		CreateRestaurantTable input3 = new CreateRestaurantTable();
+		
+		// 刪除舊的食堂行事歷表格
+		input3.dropRestaurantTable();
+		
+		// 建立新的食堂行事歷表格
+		input3.createRestaurantTable();
+		
 		// =============================
 
 	}

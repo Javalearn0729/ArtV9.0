@@ -28,19 +28,13 @@ public class ShopReservationBean implements Serializable {
 	@Column(name = "MEMBERNAME")
 	private String memberName;
 
-	@Column(name = "SHOPID")
-	private int shopId;
-
-	@Column(name = "SHOPNAME")
-	private String shopName;
-
-	// 5 =====================
-
 	@Column(name = "CUSTOMERNAME")
 	private String customerName;
 
 	@Column(name = "CUSTOMERPHONE")
 	private String customerPhone;
+	
+	// 5 =====================
 
 	@Column(name = "ADULTSNUM")
 	private int adultsNum;
@@ -51,22 +45,31 @@ public class ShopReservationBean implements Serializable {
 	@Column(name = "AMOUNT")
 	private int amount;
 
-	// 10 ==================
-
 	@Column(name = "DATETIME")
 	private String dateTime;
-	
-	@Column(name = "STARTTIME")
-	private String startTime;
 
-	@Column(name = "ENDTIME")
-	private String endTime;
+	@Column(name = "Time")
+	private String time;
+
+	// 10 =====================
 	
+	@Column(name = "PAYMENT")
+	private int payment;
+
 	@Column(name = "NOTE")
 	private String note;
+	
+	@Column(name = "GENDER")
+	private int gender;
+	
+	@Column(name = "EMAIL")
+	private String email;
+	
+	@Column(name = "PURPOSE")
+	private int purpose;
 
-	// 14 ==================
-
+	// 15 =====================
+	
 	public int getReservationNo() {
 		return reservationNo;
 	}
@@ -89,22 +92,6 @@ public class ShopReservationBean implements Serializable {
 
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
-	}
-
-	public int getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(int shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
 	}
 
 	public String getCustomerName() {
@@ -155,20 +142,20 @@ public class ShopReservationBean implements Serializable {
 		this.dateTime = dateTime;
 	}
 
-	public String getStartTime() {
-		return startTime;
+	public String getTime() {
+		return time;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
-	public String getEndTime() {
-		return endTime;
+	public int getPayment() {
+		return payment;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setPayment(int payment) {
+		this.payment = payment;
 	}
 
 	public String getNote() {
@@ -179,33 +166,28 @@ public class ShopReservationBean implements Serializable {
 		this.note = note;
 	}
 
-	// ==================
+	public int getGender() {
+		return gender;
+	}
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "SHOPID")
-//	private ReservationPolicyBean reservationPolicyBean;
-//	
-	// ==================
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
 
-//	public ShopReservationBean(int reservationNo, String memberId, String name, int shopId, String shopName,
-//			String customerName, String customerPhone, int adultsNum, int childrenNum, int amount, String startTime, String endTime, ReservationPolicyBean reservationPolicyBean) {
-//
-//		this.reservationNo = reservationNo;
-//		this.memberId = memberId;
-//		this.name = name;
-//		this.shopId = shopId;
-//		this.shopName = shopName;
-//
-//		this.customerName = customerName;
-//		this.customerPhone = customerPhone;
-//		this.adultsNum = adultsNum;
-//		this.childrenNum = childrenNum;
-//		this.amount = amount;
-//		
-//		this.startTime = startTime;
-//		this.endTime = endTime;
-//		this.reservationPolicyBean = reservationPolicyBean;
-//	}
+	public String getEmail() {
+		return email;
+	}
 
-	// ==================
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(int purpose) {
+		this.purpose = purpose;
+	}
+	
 }

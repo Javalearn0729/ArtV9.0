@@ -20,10 +20,16 @@
 		<form method="post"
 			action="<c:url value = "/03/cms/shop/createShop.ctrl"/>">
 			<table>
-				<thead></thead>
+				<thead>
+					<tr class="head">
+						<th scope="col"></th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tfoot></tfoot>
 				<tbody>
-					<tr>
-						<!-- <tr style="display: none"> -->
+					<tr style="display: none">
 						<td>會員帳號</td>
 						<td><input type="hidden" name="memberId" value="${memberId}">${memberId}</td>
 						<td></td>
@@ -42,7 +48,7 @@
 					<tr>
 						<td>簡介*</td>
 						<td><textarea placeholder="請輸入簡介內容" name="intro"
-								style="width: 400px; height: 70px;" required="required"> </textarea></td>
+								style="width: 500px; height: 100px;" required="required"> </textarea></td>
 						<td style="width: 200px;"></td>
 					</tr>
 					<!-- ====================================================== -->

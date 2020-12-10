@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+
 @Repository("shopReservationDAO")
 public class ShopReservationDAO {
 
@@ -65,25 +66,10 @@ public class ShopReservationDAO {
 		List<ShopReservationBean> list = query.list();
 		return list;
 	}
-
-	public List<ShopReservationBean> selectByShopId(int shopId) {
-		Session session = sessionFacory.getCurrentSession();
-		Query<ShopReservationBean> query = session.createQuery("From ShopReservationBean where shopId = "+shopId+"",
-				ShopReservationBean.class);
-		List<ShopReservationBean> list = query.list();
-		return list;
-	}
 	
-	public List<ShopReservationBean> selectByShopName(String shopName) {
+	public List<ShopReservationBean> selectByDateTime(String dateTime) {
 		Session session = sessionFacory.getCurrentSession();
-		Query<ShopReservationBean> query = session.createQuery("From ShopReservationBean where shopName like '%" + shopName + "%'",
-				ShopReservationBean.class);
-		List<ShopReservationBean> list = query.list();
-		return list;
-	}
-	public List<ShopReservationBean> selectByDateTime(int shopId, String dateTime) {
-		Session session = sessionFacory.getCurrentSession();
-		Query<ShopReservationBean> query = session.createQuery("From ShopReservationBean where shopId = " + shopId + " and dateTime = " + dateTime + " ",
+		Query<ShopReservationBean> query = session.createQuery("From ShopReservationBean where dateTime = " + dateTime + " ",
 				ShopReservationBean.class);
 		List<ShopReservationBean> list = query.list();
 		return list;
@@ -100,36 +86,39 @@ public class ShopReservationDAO {
 			int reservationNo, 
 			int memberId, 
 			String memberName, 
-			int shopId, 
-			String shopName, 
 			String customerName,
 			String customerPhone,
 			int adultsNum, 
 			int childrenNum, 
 			int amount, 
 			String dateTime, 
-			String startTime, 
-			String endTime,
-			String note) {
+			String time, 
+			int payment,
+			String note,
+			int gender,
+			String email,
+			int purpose
+			) {
 
 		Session session = sessionFacory.getCurrentSession();
 		ShopReservationBean result = session.get(ShopReservationBean.class, reservationNo);
 		if (result != null) {
 			result.setMemberId(memberId);
 			result.setMemberName(memberName);
-			result.setShopId(shopId);
-			result.setShopName(shopName);
-
 			result.setCustomerName(customerName);
 			result.setCustomerPhone(customerPhone);
+			
 			result.setAdultsNum(adultsNum);
 			result.setChildrenNum(childrenNum);
 			result.setAmount(amount);
-			
 			result.setDateTime(dateTime);
-			result.setStartTime(startTime);
-			result.setEndTime(endTime);
+			result.setTime(time);
+			
+			result.setPayment(payment);
 			result.setNote(note);
+			result.setGender(gender);
+			result.setEmail(email);
+			result.setPurpose(purpose);
 		}
 		return result;
 	}
@@ -145,4 +134,17 @@ public class ShopReservationDAO {
 		return false;
 	}
 
+	public boolean deleteByMemberIdAndDateAndTime(int memberId, String dateTime, String time) {
+		Session session = sessionFacory.getCurrentSession();
+		Query<ShopReservationBean> query = session.createQuery("From ShopReservationBean where memberId ="+memberId+" and dateTime ='"+dateTime+"'  and time ="+time+"",
+				ShopReservationBean.class);			
+		ShopReservationBean result = query.list().get(0);
+		
+		if (result != null) {
+			session.delete(result);
+			return true;
+		}
+		return false;
+	}
+	
 }

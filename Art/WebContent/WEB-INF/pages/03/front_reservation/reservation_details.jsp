@@ -24,7 +24,7 @@
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">AAART Shop</h1>
 					<p class="text-white link-nav">
-						<a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
+						<a href="index.html">首頁 </a> <span class="lnr lnr-arrow-right"></span>
 						<a href="<c:url value='/14/shopListController.ctrl' />"> Shop</a>
 					</p>
 				</div>
@@ -54,7 +54,7 @@
 				<tbody>
 					<c:if test="${reservation != null}">
 						<tr>
-							<td>訂單編號:</td>
+							<td>訂位編號:</td>
 							<td>${reservation.reservationNo}</td>
 							<td></td>
 						</tr>

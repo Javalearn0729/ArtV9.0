@@ -42,14 +42,14 @@
 			class="display table table-bordered table-hover table-blue">
 			<thead>
 				<tr class="head">
-					<th scope="col">商店代號</th>
-					<th scope="col">商店名稱</th>
-					<th scope="col">商店地址</th>
-					<th scope="col">連絡電話</th>
-					<th scope="col">詳細資訊</th>
+					<th scope="col" width="100px">商店代號</th>
+					<th scope="col" width="100px">商店名稱</th>
+					<th scope="col" width="100px">商店地址</th>
+					<th scope="col" width="100px">連絡電話</th>
+					<th scope="col" width="100px">詳細資訊</th>
 					<!-- ===================== -->
-					<th scope="col">更新</th>
-					<th scope="col">刪除</th>
+					<th scope="col"width="80px">更新</th>
+					<th scope="col"width="80px">刪除</th>
 				</tr>
 			</thead>
 			<tfoot>
